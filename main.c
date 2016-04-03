@@ -18,8 +18,9 @@ void BPM(clock_t n, int *save, double *bpm, int cnt)
     ave += bpm[i]; 
   }
   ave /= cnt;
-
-  printf("–ñ%.3f\n", ave); 
+  
+  gotoxy(20, 25);
+  printf("BPM:%7.3f\n", ave); 
 }
 
 int main(void)
@@ -29,7 +30,8 @@ int main(void)
   static int save[114514];
   static double bpm[114514];
   clock_t t;
-
+  
+  clrscr();
   keycnt = 0;
   while (key = getch(), key != 'q'){
     if (key == 0x20){
